@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: projecthub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: projecthub
+  template:
+    metadata:
+      labels:
+        app: projecthub
+    spec:
+      containers:
+        - name: projecthub
+          image: projecthub:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: projecthub-secret
