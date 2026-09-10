@@ -1386,20 +1386,3 @@ O resultado é uma aplicação que reúne desenvolvimento web, banco de dados, s
 Mais do que uma coleção de tecnologias, o ProjectHub foi pensado como uma experiência prática de desenvolvimento de software ponta a ponta: começar com um servidor funcionando, transformar esse servidor em uma API real, conectar um banco de dados, proteger os recursos, documentar, testar, empacotar, automatizar, explorar infraestrutura e finalmente transformar tudo isso em uma aplicação web com usabilidade.
 
 O projeto pode continuar crescendo, mas já representa uma base sólida para demonstrar conhecimento técnico, capacidade de integração entre tecnologias e, principalmente, capacidade de desenvolver uma aplicação completa do início ao fim.
-
----
-
-## Status do projeto
-
-**Projeto funcional e em evolução.**
-
-O backend, banco, autenticação, documentação, testes, Docker, Kubernetes, CI/CD, integração de identidade Microsoft e frontend fazem parte da mesma proposta de aplicação.
-
----
-
-## Autor
-
-**Rian Friedrich**
-
-Projeto desenvolvido para aprendizado prático, portfólio e aprofundamento em desenvolvimento de software, backend, frontend, banco de dados, DevOps, cloud e integração de serviços.
-
