@@ -1,0 +1,13 @@
+import { useEffect, useState } from 'react'
+import type { FormEvent } from 'react'
+import { projectsApi, type Project } from '../lib/api'
+import { PageHeader, Badge, Empty } from '../components/Ui'
+
+export default function Projects() {
+ const [items,setItems]=useState<Project[]>([]); const [search,setSearch]=useState(''); const [open,setOpen]=useState(false); const [name,setName]=useState(''); const [description,setDescription]=useState(''); const [busy,setBusy]=useState(false)
+ async function load(){ const r=await projectsApi.list({limit:20,search}); setItems(r.data.data) }
+ useEffect(()=>{load().catch(()=>{})},[search])
+ async function create(e:FormEvent){e.preventDefault();setBusy(true);try{await projectsApi.create({name,description});setOpen(false);setName('');setDescription('');await load()}finally{setBusy(false)}}
+ async function remove(id:number){if(confirm('Excluir este projeto?')){await projectsApi.remove(id);await load()}}
+ return <><PageHeader eyebrow="WORKSPACE" title="Projetos" description="Crie, visualize e administre o ciclo de vida dos seus projetos." action={<button className="primary-btn" onClick={()=>setOpen(true)}>+ Novo projeto</button>}/><div className="toolbar"><div className="search-field">⌕<input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Buscar projetos..."/></div><span className="toolbar-meta">{items.length} exibidos</span></div><section className="panel project-table"><div className="table-head"><span>Projeto</span><span>Descrição</span><span>Atualizado</span><span>Ações</span></div>{items.length ? items.map(p=><div className="table-row" key={p.id}><div className="table-project"><div className="project-icon">{p.name[0]}</div><div><strong>{p.name}</strong><small>#{p.id} · owner scoped</small></div></div><span>{p.description || '—'}</span><span>{new Date(p.updatedAt).toLocaleDateString('pt-BR')}</span><div className="row-actions"><a className="soft-btn" href={`/projects/${p.id}`}>Abrir</a><button className="danger-btn" onClick={()=>remove(p.id)}>Excluir</button></div></div>) : <Empty title="Nada encontrado" description="Tente outra busca ou crie um novo projeto."/>}</section>{open&&<div className="modal-backdrop"><div className="modal"><div className="modal-head"><div><span className="eyebrow">CREATE</span><h3>Novo projeto</h3></div><button onClick={()=>setOpen(false)}>×</button></div><form onSubmit={create}><label>Nome<input value={name} onChange={e=>setName(e.target.value)} required minLength={2}/></label><label>Descrição<textarea value={description} onChange={e=>setDescription(e.target.value)} rows={4}/></label><button className="primary-btn full" disabled={busy}>{busy?'Criando...':'Criar projeto'}</button></form></div></div>}</>
+}
