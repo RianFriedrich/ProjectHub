@@ -1209,7 +1209,7 @@ Também é possível utilizar Swagger ou o REST Console para testar diretamente 
 
 ## 27. Por que o projeto é robusto
 
-A robustez do ProjectHub não vem de possuir centenas de arquivos ou de utilizar tecnologia apenas para aumentar a lista do currículo.
+A robustez do ProjectHub não vem de possuir centenas de arquivos ou de utilizar tecnologia apenas para aumentar a lista.
 
 Ela vem da quantidade de responsabilidades que a aplicação consegue integrar de maneira coerente.
 
