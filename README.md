@@ -45,7 +45,7 @@ A proposta central do projeto foi combinar diversas ferramentas em uma única ap
 
 ## 1. Visão geral
 
-O ProjectHub é uma aplicação de gerenciamento de projetos e tarefas baseada em uma API REST, banco de dados relacional e uma interface web moderna.
+O ProjectHub é uma aplicação de gerenciamento de projetos e tarefas baseada em uma API REST, banco de dados relacional, diversas ferramentas e uma interface web moderna.
 
 A aplicação permite autenticar usuários, criar projetos, criar e acompanhar tarefas, consultar dados, aplicar filtros e paginação, proteger recursos por usuário, documentar a API e executar operações diretamente pela interface.
 
