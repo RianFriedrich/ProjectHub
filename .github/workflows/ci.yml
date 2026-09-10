@@ -40,14 +40,18 @@ jobs:
       - name: Instalar Kubeconform
         uses: bmuschko/setup-kubeconform@v1
 
-      - name: Configurar Kubeconform
-        uses: bmuschko/setup-kubeconform@v1
+      
 
       - name: Validar manifests Kubernetes
         run: kubeconform -summary -strict k8s/
 
-      - name: Validar manifests Kubernetes com Kubeconform
-        run: kubeconform -strict -summary k8s/
+      - name: Configurar Kubeconform
+        uses: bmuschko/setup-kubeconform@v1
+
+      
+
+      - name: Validar manifests Kubernetes
+        run: kubeconform -summary -strict k8s/
 
 
           
