@@ -1383,6 +1383,9 @@ Aplicação completa e utilizável
 
 O resultado é uma aplicação que reúne desenvolvimento web, banco de dados, segurança, documentação, testes, containerização, orquestração, CI/CD, cloud e frontend em um único projeto.
 
+
+
+
 Mais do que uma coleção de tecnologias, o ProjectHub foi pensado como uma experiência prática de desenvolvimento de software ponta a ponta: começar com um servidor funcionando, transformar esse servidor em uma API real, conectar um banco de dados, proteger os recursos, documentar, testar, empacotar, automatizar, explorar infraestrutura e finalmente transformar tudo isso em uma aplicação web com usabilidade.
 
 O projeto pode continuar crescendo, mas já representa uma base sólida para demonstrar conhecimento técnico, capacidade de integração entre tecnologias e, principalmente, capacidade de desenvolver uma aplicação completa do início ao fim.
