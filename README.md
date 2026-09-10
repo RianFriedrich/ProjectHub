@@ -1250,12 +1250,6 @@ O principal valor está na integração entre as partes.
 
 ## 28. Decisões de arquitetura
 
-Uma regra importante guiou o desenvolvimento:
-
-> Complicar apenas o suficiente para demonstrar conhecimento.
-
-Por isso, algumas escolhas foram deliberadamente simples.
-
 ### Uma API principal
 
 Não foram criados múltiplos microsserviços apenas para demonstrar que microsserviços existem.
