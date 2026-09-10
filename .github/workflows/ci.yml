@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v5
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Gerar Prisma Client
+        run: npx prisma generate
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Rodar testes
+        run: npm test
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
+      - name: Construir imagem Docker
+        run: docker build -t projecthub .
+
+      - name: Validar manifests Kubernetes
+        run: kubectl apply --dry-run=client --validate=false -f k8s/
+        
+      - name: Instalar Kubeconform
+        uses: bmuschko/setup-kubeconform@v1
+
+      - name: Validar manifests Kubernetes com Kubeconform
+        run: kubeconform -strict -summary k8s/
+
+
+          
