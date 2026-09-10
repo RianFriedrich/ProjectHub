@@ -1,5 +1,4 @@
 ﻿# ProjectHub
-# ProjectHub
 
 API e aplicação web completa para gerenciamento de projetos e tarefas, desenvolvida como um projeto de aprendizado prático e de integração entre diferentes áreas do desenvolvimento de software.
 
